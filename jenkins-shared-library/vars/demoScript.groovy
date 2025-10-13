@@ -15,7 +15,6 @@
  */
 import groovy.json.JsonOutput
 import org.yaml.snakeyaml.Yaml
-import static Utils.*
 
 def call(Map args) {
     // Validate required parameters
@@ -29,7 +28,7 @@ def call(Map args) {
     }
     
     echo "=" * 60
-    customEcho "🚀 JENKINS SHARED LIBRARY: DEMO SCRIPT EXECUTION"
+    utils.customEcho "🚀 JENKINS SHARED LIBRARY: DEMO SCRIPT EXECUTION"
     echo "=" * 60
     echo "Team: ${team} | Suite: ${suite} | Test: ${test}"
     
@@ -60,7 +59,7 @@ def call(Map args) {
         }
         
         // 2. Load team configuration from repository
-        customEcho "\n👥 Step 2: Loading team configuration for: ${team}"
+        utils.customEcho "\n👥 Step 2: Loading team configuration for: ${team}"
         def teamConfig = [:]
         try {
             // In production, you might store team configs in shared library resources too
