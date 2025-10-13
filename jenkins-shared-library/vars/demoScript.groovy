@@ -38,7 +38,7 @@ def call(Map args) {
         echo "\n📚 Step 1: Loading global configuration from shared library..."
         def globalInfo = [:]
         try {
-            def globalConfigText = libraryResource('jctr/global.yml')
+            def globalConfigText = libraryResource('config/global.yml')
             echo "📄 Global config file loaded, parsing YAML..."
             def globalConfig = readYaml text: globalConfigText
             globalInfo = globalConfig.GLOBAL_SETTINGS ?: [:]

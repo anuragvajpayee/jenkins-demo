@@ -1,0 +1,48 @@
+common:
+  # Frontend team specific settings
+  greeting: "Hello Frontend Team"
+  appName: "WebApp"
+  environment: "staging"
+  
+  # Team-specific email settings
+  emailTo: "frontend-updated-team@company.com"
+  emailSubject: "Frontend Build: ${appName} - ${environment}"
+  
+  # Team build settings
+  buildTool: "npm"
+  testCommand: "npm test"
+  
+  suites:
+    ui-tests:
+      # UI test suite settings
+      greeting: "Hello UI Testers"
+      timeout: 60
+      browser: "chrome"
+      headless: true
+      
+      tests:
+        smoke-test:
+          # Smoke test specific settings
+          greeting: "Running Smoke Tests"
+          testFiles: "tests/smoke/**/*.spec.js"
+          parallel: false
+          
+        regression-test:
+          # Regression test specific settings
+          greeting: "Running Regression Tests"
+          testFiles: "tests/regression/**/*.spec.js"
+          parallel: true
+          timeout: 120
+    
+    api-tests:
+      # API test suite settings
+      greeting: "Hello API Testers"
+      baseUrl: "https://api-staging.company.com"
+      timeout: 45
+      
+      tests:
+        integration-test:
+          # Integration test specific settings
+          greeting: "Running API Integration Tests"
+          testFiles: "tests/api/integration/**/*.spec.js"
+          mockData: true

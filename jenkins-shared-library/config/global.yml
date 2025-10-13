@@ -1,0 +1,12 @@
+GLOBAL_SETTINGS:
+  greeting: "Hello from Harness"
+  environment: "development"
+  logLevel: "INFO"
+  timeout: 30
+  enableNotifications: true
+  emailFrom: "harness@company.com"
+  emailSubject: "Harness Build Notification: ${appName}"
+  outputFormat: "json"
+  includeTimestamp: true
+  buildTool: "maven"
+  testCommand: "mvn test"

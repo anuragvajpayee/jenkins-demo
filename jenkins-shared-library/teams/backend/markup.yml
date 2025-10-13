@@ -1,0 +1,46 @@
+common:
+  # Backend team specific settings
+  greeting: "Hello Backend Team"
+  appName: "APIService"
+  environment: "production"
+  
+  # Team-specific email settings
+  emailTo: "backend-team@company.com"
+  emailSubject: "Backend Build: ${appName} - ${environment}"
+  
+  # Team build settings
+  buildTool: "maven"
+  testCommand: "mvn test"
+  
+  suites:
+    unit-tests:
+      # Unit test suite settings
+      greeting: "Hello Unit Testers"
+      timeout: 30
+      coverage: true
+      
+      tests:
+        service-test:
+          # Service test specific settings
+          greeting: "Running Service Unit Tests"
+          testFiles: "src/test/java/service/**/*Test.java"
+          mockDatabase: true
+          
+        controller-test:
+          # Controller test specific settings
+          greeting: "Running Controller Unit Tests"
+          testFiles: "src/test/java/controller/**/*Test.java"
+          mockServices: true
+    
+    integration-tests:
+      # Integration test suite settings
+      greeting: "Hello Integration Testers"
+      timeout: 90
+      database: "testdb"
+      
+      tests:
+        database-test:
+          # Database integration test specific settings
+          greeting: "Running Database Integration Tests"
+          testFiles: "src/test/java/integration/db/**/*Test.java"
+          cleanupData: true
