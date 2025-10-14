@@ -2,13 +2,11 @@ import groovy.json.JsonOutput
 import org.yaml.snakeyaml.Yaml
 
 // Jenkins shared library utility functions
-def readYaml(Map params) {
-    Yaml yaml = new Yaml()
-    if (params.text) {
-        return yaml.load(params.text)
-    } else if (params.file) {
-        return yaml.load(new File(params.file).text)
-    }
+def readYaml(String yaml) {
+    echo "The utility to print YAML"
+    echo "=============================="
+    echo "${yaml}"
+    echo "=============================="
 }
 */
 
