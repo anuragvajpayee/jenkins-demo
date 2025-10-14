@@ -97,7 +97,8 @@ echo "
 FINAL_CONFIG_TMP=$(mktemp)
 
 # Merge all temp files. The last file in the list has the highest precedence.
-yq eval-all 'reduce . as $item ({}; . * $item)' \
+# Using the multiply (*) operator for deep merge
+yq eval-all '. as $item ireduce ({}; . * $item)' \
     "$GLOBAL_SETTINGS_TMP" \
     "$TEAM_INFO_TMP" \
     "$SUITE_INFO_TMP" \
