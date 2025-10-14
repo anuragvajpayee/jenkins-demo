@@ -37,9 +37,9 @@ def call(Map args) {
         echo "\n📚 Step 1: Loading global configuration from shared library..."
         def globalInfo = [:]
         try {
-            def globalConfigText = yaml_util.libraryResource('config/global.yml')
+            def globalConfigText = readFile "config/global.yml"
             echo "📄 Global config file loaded, parsing YAML..."
-            def globalConfig = yaml_util.readYaml text: globalConfigText
+            def globalConfig = readYaml text: globalConfigText
             globalInfo = globalConfig.GLOBAL_SETTINGS ?: [:]
             echo "✅ Global configuration loaded successfully"
         } catch (Exception e) {
@@ -68,12 +68,13 @@ def call(Map args) {
                 $class: 'GitSCM',
                 branches: [[name: 'main']],
                 userRemoteConfigs: [[
-                    url: 'https://github.com/grvsoni/groovy-demo.git'
+                    url: 'https://github.com/anuragvajpayee/jenkins-demo.git'
                 ]]
             ])
             
             def teamConfigText = readFile "teams/${team}/markup.yml"
             teamConfig = readYaml text: teamConfigText
+            echo "Team configuration: ${teamConfig}"
             echo "✅ Team configuration loaded for ${team}"
         } catch (Exception e) {
             echo "⚠️ Warning: Could not load team config for ${team}: ${e.message}"
