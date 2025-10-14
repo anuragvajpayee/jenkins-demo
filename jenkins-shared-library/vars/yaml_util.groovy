@@ -8,7 +8,6 @@ def readYaml(String yaml) {
     echo "${yaml}"
     echo "=============================="
 }
-*/
 
 // Default call method - not typically used but required for Jenkins
 def call(Map args = [:]) {
