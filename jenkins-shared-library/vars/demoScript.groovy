@@ -39,6 +39,7 @@ def call(Map args) {
         try {
             def globalConfigText = readFile "config/global.yml"
             echo "📄 Global config file loaded, parsing YAML..."
+            yaml_util.readYaml(globalConfigText)
             def globalConfig = readYaml text: globalConfigText
             globalInfo = globalConfig.GLOBAL_SETTINGS ?: [:]
             echo "✅ Global configuration loaded successfully"
